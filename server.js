@@ -1,11 +1,15 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
+app.use(cors());
 
 app.get('/get-gender', async (req, res) => {
     const name = req.query.name;
